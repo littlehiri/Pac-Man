@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class GameManager : MonoBehaviour
     public float invincibleTime = 0.0f;
     //Creamos el Singleton del GameManager
     public static GameManager sharedInstance;
+
+    public TextMeshProUGUI Score;
+    public int Puntos;
 
     private void Awake()
     {
