@@ -79,6 +79,7 @@ public class GhostMovement : MonoBehaviour
         if (collision.tag == "Player")
         {
             //Destruye a PacMan(obteniendo de este gameObject, su código para poder coger de este el método PacManDead())
+            Destroy(collision.gameObject);
             
         }
     }

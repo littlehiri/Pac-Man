@@ -10,8 +10,10 @@ public class GameManager : MonoBehaviour
     //Creamos el Singleton del GameManager
     public static GameManager sharedInstance;
 
+    public AudioSource Comer;
+
     public TextMeshProUGUI Score;
-    public int Puntos;
+    public int Puntos;  
 
     private void Awake()
     {

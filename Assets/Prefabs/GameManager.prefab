@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &798841770986375551
 MonoBehaviour:
@@ -45,5 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invincibleTime: 0
-  Score: {fileID: 0}
-  Puntos: 0
+  Comer: {fileID: 5653094223204802994, guid: 98b91b0121fd49d4aaac2fe1fb972a9e, type: 3}
+  Score: {fileID: 2184447315266521074, guid: 0d8eeee901d57d0468b8b34a5605e7aa, type: 3}
+  Puntos: 600

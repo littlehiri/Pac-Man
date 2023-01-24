@@ -17,6 +17,7 @@ public class Fruit : MonoBehaviour
             GameManager.sharedInstance.MakeInvincibleFor(15.0f);
             //Eliminamos la fruta
             Destroy(gameObject);
+            GameManager.sharedInstance.GetComponent<AudioSource>().Play();
         }
     }
 }
