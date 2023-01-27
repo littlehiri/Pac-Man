@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GhostMovement : MonoBehaviour
 {
+    
+
     //Necesitamos un array de posiciones llamado Waypoints(puntos de ruta). Cada fantasma puede tener un número de puntos de ruta distintos
     public Transform[] waypoints;
     //Inicializo la posición en la que se encuentra el fantasma en la posición 0 del array. Luego este valor irá variando
@@ -14,7 +16,7 @@ public class GhostMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        GetComponent<AudioSource>().Play();
     }
 
     private void Update()
@@ -24,6 +26,8 @@ public class GhostMovement : MonoBehaviour
         {
             //El fantasma cambia a azul
             GetComponent<Animator>().SetBool("PacManInvincible", true);
+
+            
         }
         else
         {
@@ -79,8 +83,8 @@ public class GhostMovement : MonoBehaviour
         if (collision.tag == "Player")
         {
             //Destruye a PacMan(obteniendo de este gameObject, su código para poder coger de este el método PacManDead())
-            Destroy(collision.gameObject);
             
+            collision.GetComponent < PacManMovement >().Pacmandead();
         }
     }
 }

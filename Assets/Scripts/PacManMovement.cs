@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class PacManMovement : MonoBehaviour
 {
+    public GameManager referencia;
+
     //Velocidad de PacMan
-    public float speed = 0.4f;
+    public float speed = 0.0f;
     //Destino al que ir, que al inicio será el (0, 0)
     Vector2 destination = Vector2.zero;
+
+    public GameObject objeto;
+
+    public GameObject maze;
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +66,19 @@ public class PacManMovement : MonoBehaviour
         //Dependiendo del valor de dir.y. hacemos que PacMan se vea hacia arriba o hacia abajo
         GetComponent<Animator>().SetFloat("DirY", dir.y); //Accedemos al Animator de PacMan y aplicando un cambio en su parámetro DirY, conseguimos el cambio de animación
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //Si el objeto contra el que ha chocado está etiquetado como Player(PacMan)
+        if (collision.tag == "PhantomB")
+        {
+            GetComponent<AudioSource>().Play();
+            if (referencia.invincibleTime > 0)
+            {
+                Destroy(objeto);
+                maze.GetComponent<AudioSource>().Play();
+            }
+        }
+    }
 
     /* Método que dada una posible dirección de movimiento
      * devuelve true si podemos ir en dicha direccion
@@ -87,5 +106,16 @@ public class PacManMovement : MonoBehaviour
             //Tengo un collider delante que no es el de PacMan, no puedo moverme allí
             return false;
         }
+    }
+    public void Pacmandead()
+    {
+        StartCoroutine(Pacmandeadco());
+    }
+    public IEnumerator Pacmandeadco()
+    {
+        GetComponent<AudioSource>().Play();
+        yield return new WaitForSeconds(1);
+        Destroy(this.gameObject);
+        
     }
 }

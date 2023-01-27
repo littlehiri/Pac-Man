@@ -5,6 +5,7 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    
     //Variable para controlar el tiempo en el que PacMan es invencible
     public float invincibleTime = 0.0f;
     //Creamos el Singleton del GameManager
